@@ -1,0 +1,21 @@
+porownanie okulary_jasne1.jpeg i okulary_jasne2.jpeg (cosine_similarity)
+py main.py --cos_sim -img1="./images_infrared/okulary_jasne1.jpeg" -img2="./images_infrared/okulary_jasne2.jpeg" -model_name="Facenet" -enforce_detection=True -detector_backend=mtcnn
+
+porownanie okulary_jasne1 i okulary_jasne1_zasloniete.jpeg
+py main.py --cos_sim -img1="./images_infrared/okulary_jasne1_zasloniete.jpg" -img2="./images_infrared/okulary_jasne2.jpeg" -model_name="Facenet" -enforce_detection=True -detector_backend=mtcnn (face not detected!)
+py main.py --cos_sim -img1="./images_infrared/okulary_jasne1_zasloniete.jpg" -img2="./images_infrared/okulary_jasne2.jpeg" -model_name="Facenet" -enforce_detection=True -detector_backend=retinaface (face not detected!)
+py main.py --cos_sim -img1="./images_infrared/okulary_jasne1_zasloniete.jpg" -img2="./images_infrared/okulary_jasne2.jpeg" -model_name="Facenet" -enforce_detection=False -detector_backend=retinaface (0.04)
+
+
+porownanie okulary_jasne1.jpeg i bez_okularow1.jpeg
+py main.py --cos_sim -img1="./images_infrared/okulary_jasne1.jpeg" -img2="images_infrared/bez_okularow1.jpeg" -model_name=Facenet -enforce_detection=True -detector_backend=retinaface (0.51)
+py main.py --cos_sim -img1="./images_infrared/okulary_jasne1.jpeg" -img2="images_infrared/bez_okularow1.jpeg" -model_name=Facenet -enforce_detection=True -detector_backend=mtcnn (0.73)
+
+porownanie bez_okularow1 i okulary_jasne1_zasloniete.jpeg
+py main.py --cos_sim -img1="./images_infrared/okulary_jasne1_zasloniete.jpg" -img2="./images_infrared/bez_okularow1.jpeg" -model_name="Facenet" -enforce_detection=True -detector_backend=mtcnn  (face not detected)
+
+
+
+
+Link do rozmowy z chatem gpt
+https://chatgpt.com/share/69092e75-f278-8009-8d31-a863f67e84ff
