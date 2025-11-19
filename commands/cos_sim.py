@@ -8,7 +8,7 @@ def do_cos_sim(args):
         raise ValueError("No img_path1")
     if not img_path2:
         raise ValueError("No img path2")
-    model_name = args.get('model_name', 'ArcFace')
+    model_name = args.get('model_name', 'Facenet')
     detector_backend = args.get("detector_backend", 'retinaface')
     enforce_detection = args.get('enforce_detection', False)
     if enforce_detection in ['true', 'True', '1']:
@@ -19,4 +19,7 @@ def do_cos_sim(args):
     vec1 = extract_vector(img_path=img_path1, model_name=model_name, detector_backend=detector_backend, enforce_detection=enforce_detection)
     vec2=extract_vector(img_path=img_path2, model_name=model_name, detector_backend=detector_backend, enforce_detection=enforce_detection)
     print("Results for model ", model_name, " and detector ", detector_backend)
-    print(cosine_similarity(vec1, vec2))
+    cos_sim = float(cosine_similarity(vec1, vec2))
+    distance : float = np.sqrt(2.0*(1.0-cos_sim))
+    print("Cosine similarity:", cos_sim)
+    print("Distance: ", distance)

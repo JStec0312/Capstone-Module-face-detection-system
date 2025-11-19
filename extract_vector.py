@@ -3,10 +3,10 @@ from deepface import DeepFace
 from typing import Optional
 def extract_vector(
     img_path: str,
-    model_name: str = "ArcFace",
+    model_name: str = "Facenet",
     detector_backend: str = "retinaface",
     enforce_detection: bool = False,
-    normalization: str = "ArcFace",
+    normalization: str = "Facenet",
     model: Optional[object] = None
 ) -> np.ndarray:
     
